@@ -1,9 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
+import colors from "colors";
 dotenv.config();
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
+import connectDB from "./config/db.js";
 const port = process.env.PORT || 8001;
 import userRoutes from "./routes/userRoutes.js";
+
+connectDB();
 
 const app = express();
 
